@@ -1,0 +1,18 @@
+<div style="margin-left: 700px">
+    <img [src]="photoUrl" [@photoState]="position" class="photo" width="250px" 
+      (@photoState.start)="logAnimation($event)"
+      (@photoState.done)="logAnimation($event)" />
+</div>
+<div>
+  <button (click)="changePosition('move')" class="button">Translate</button>
+  <button (click)="changePosition('spin')" class="button">Rotate</button>
+  <button (click)="changePosition('enlarge')" class="button">Scale</button>
+  <button (click)="changePosition('null')" class="button">Reset</button>
+</div>
+
+
+<div [@photosAnimation]="photos.length">
+  <div *ngFor="let photo of photos">
+    <img [src]="photo" width="300px" />
+  </div>
+</div>
